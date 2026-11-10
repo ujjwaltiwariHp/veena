@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Veena & Dr. Anil • Wedding Invitation | V & A</title>
+  <meta name="title" content="Veena & Dr. Anil • Wedding Invitation | V & A" />
+  <meta name="description" content="We cordially invite you to the wedding celebrations of Veena & Dr. Anil on 24th November 2026 at Open Sky Resort, Gorakhpur." />
+  <meta name="theme-color" content="#F7D6DF" />
+
+  <!-- Open Graph / WhatsApp / Social Share Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Veena & Dr. Anil • Wedding Invitation | V & A" />
+  <meta property="og:description" content="Join us for the Haldi Ceremony & Wedding (24 Nov) and Vidai (25 Nov) at Open Sky Resort, Gorakhpur. Tap to open the invitation!" />
+  <meta property="og:image" content="assets/couple_seated.jpg" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blush: {
+              50: '#FDF8F9',
+              100: '#FCEEF2',
+              200: '#FBE0E7',
+              300: '#F7C6D3',
+              400: '#F19EB5',
+              500: '#E87A98',
+              600: '#D55577',
+              700: '#B4395A',
+              800: '#8E2943',
+              900: '#541525',
+              950: '#340813',
+            },
+            roseGold: {
+              light: '#F8E2D8',
+              DEFAULT: '#D89982',
+              dark: '#A66650',
+            },
+            champagne: {
+              light: '#FFF5E4',
+              DEFAULT: '#E5C378',
+              dark: '#9A7830',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            display: ['"Playfair Display"', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'pink-glow': '0 8px 30px -4px rgba(241, 158, 181, 0.45)',
+            'gold-glow': '0 8px 30px -4px rgba(229, 195, 120, 0.45)',
+            'glass': '0 10px 30px 0 rgba(142, 41, 67, 0.08)',
+            'envelope': '0 25px 50px -12px rgba(84, 21, 37, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Baby Pinkish & Rose Gold Gradients */
+    .bg-baby-pink {
+      background: linear-gradient(175deg, #FDF8F9 0%, #FCEEF2 45%, #F8E2D8 100%);
+    }
+
+    .rose-gold-gradient {
+      background: linear-gradient(135deg, #ECC876 0%, #D89982 50%, #F19EB5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-foil-bg {
+      background: linear-gradient(135deg, #FFE8B5 0%, #E5C378 40%, #FFF3D6 65%, #C2963F 100%);
+    }
+
+    .pink-gold-btn {
+      background: linear-gradient(135deg, #F19EB5 0%, #D89982 45%, #E5C378 100%);
+    }
+
+    .pink-card-glass {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(241, 158, 181, 0.4);
+    }
+
+    .dark-pink-card {
+      background: linear-gradient(160deg, #541525 0%, #3D0916 60%, #24050D 100%);
+    }
+
+    /* Cinematic Ken Burns Animation for Reel Video Effect */
+    @keyframes kenburnsZoom {
+      0% { transform: scale(1) translate(0, 0); }
+      50% { transform: scale(1.08) translate(-1%, -1%); }
+      100% { transform: scale(1) translate(0, 0); }
+    }
+    .animate-kenburns {
+      animation: kenburnsZoom 12s infinite alternate ease-in-out;
+    }
+
+    /* 3D Envelope Opening */
+    .perspective-1200 {
+      perspective: 1200px;
+    }
+
+    .envelope-top-flap {
+      transform-origin: top center;
+      transition: transform 0.9s cubic-bezier(0.35, 1.25, 0.45, 1);
+      transform-style: preserve-3d;
+    }
+
+    .envelope-open .envelope-top-flap {
+      transform: rotateX(180deg);
+      z-index: 5 !important;
+    }
+
+    .envelope-card-content {
+      transform: translateY(0);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 1.1s cubic-bezier(0.2, 1, 0.3, 1) 0.3s, opacity 0.5s ease 0.25s;
+    }
+
+    .envelope-open .envelope-card-content {
+      transform: translateY(-90px) scale(1.02);
+      opacity: 1 !important;
+      pointer-events: auto;
+      z-index: 25 !important;
+    }
+
+    /* Monogram Pulse */
+    @keyframes formulaGlow {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(229, 195, 120, 0.4)); }
+      50% { transform: scale(1.06); filter: drop-shadow(0 0 25px rgba(241, 158, 181, 0.8)); }
+    }
+    .animate-formula-glow {
+      animation: formulaGlow 2.5s infinite ease-in-out;
+    }
+
+    /* Falling Flowers and Sparkles */
+    @keyframes fall {
+      0% {
+        transform: translateY(-40px) rotate(0deg) scale(0.6);
+        opacity: 0;
+      }
+      15% { opacity: 0.95; }
+      85% { opacity: 0.85; }
+      100% {
+        transform: translateY(105vh) rotate(420deg) scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    .petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      animation: fall 5s linear forwards;
+    }
+
+    /* Rotating Disc */
+    @keyframes spinDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spinDisc 8s linear infinite;
+    }
+
+    /* Hide scrollbars */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-[#1C060C] text-[#340813] font-body min-h-screen antialiased select-none overflow-x-hidden">
+
+  <!-- Desktop Ambient Canvas Background (Soft Pinkish Video Mood) -->
+  <div class="fixed inset-0 z-0 hidden lg:block opacity-40 pointer-events-none">
+    <div class="absolute inset-0 bg-cover bg-center filter blur-3xl scale-125" style="background-image: url('assets/couple_standing.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#1C060C] via-[#340813]/85 to-[#1C060C]"></div>
+  </div>
+
+  <!-- Audio Player -->
+  <audio id="weddingAudio" loop preload="auto">
+    <source src="assets/wedding_music.m4a" type="audio/mp4" />
+    <source src="assets/wedding_music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating Audio & Auto-Play Video Tour Pill (Top Right) -->
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <!-- Cinema Auto-Tour Button -->
+    <button id="cinematicTourBtn" onclick="toggleCinematicTour()" title="Auto-play Video Experience" class="flex items-center gap-1.5 bg-[#4A101E]/90 backdrop-blur-md border border-[#F19EB5]/50 text-[#FCEEF2] px-3 py-1.5 rounded-full shadow-pink-glow text-xs font-semibold hover:scale-105 active:scale-95 transition-all">
+      <span id="cinemaIcon">▶</span>
+      <span id="cinemaText" class="tracking-wide text-[11px]">Auto Tour</span>
+    </button>
+
+    <!-- Music Toggle -->
+    <button id="audioToggleBtn" onclick="toggleAudio()" class="group flex items-center gap-1.5 bg-[#4A101E]/90 backdrop-blur-md border border-[#E5C378]/50 text-[#FCEEF2] pl-2 pr-3 py-1.5 rounded-full shadow-gold-glow text-xs font-medium hover:scale-105 active:scale-95 transition-all">
+      <span id="discIcon" class="w-5 h-5 rounded-full gold-foil-bg flex items-center justify-center text-[#541525] text-[10px] shadow">
+        ♪
+      </span>
+      <span id="audioStatusText" class="tracking-wide text-[11px]">Music : Off</span>
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. ENVELOPE OPENING OVERLAY (VEENA & DR. ANIL • V & A UNBOXING) -->
+  <!-- ========================================================================= -->
+  <div id="envelopeOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md px-4 transition-all duration-700">
+    <div class="w-full max-w-sm perspective-1200">
+      
+      <!-- Monogram Formula Intro: Veena & Dr. Anil = V & A -->
+      <div class="text-center mb-6">
+        
+        <!-- Animated Formula Badge: Veena & Dr. Anil = V & A -->
+        <div class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-[#541525] via-[#7B2039] to-[#541525] border-2 border-[#E5C378]/70 shadow-pink-glow animate-formula-glow">
+          <span class="font-display font-bold text-lg text-[#FCEEF2]">Veena</span>
+          <span class="mx-2 text-[#E5C378] text-sm font-bold">&amp;</span>
+          <span class="font-display font-bold text-lg text-[#FCEEF2]">Dr. Anil</span>
+          <span class="mx-2 text-[#F19EB5] text-sm font-bold">=</span>
+          <span class="font-display font-extrabold text-2xl text-[#FFE8B5] tracking-tight">V &amp; A</span>
+        </div>
+
+        <p class="font-cinzel font-bold text-[#FCEEF2] text-lg sm:text-xl mt-3 tracking-wider uppercase">
+          <span class="text-[#FFE8B5] font-black">V</span>EENA &amp; <span class="text-[#FFE8B5] font-black">D</span>R. <span class="text-[#FFE8B5] font-black">A</span>NIL
+        </p>
+        <p class="font-body text-[#F7C6D3] text-xs tracking-[0.25em] uppercase font-medium mt-1">
+          Together In Love • Tap to Unbox
+        </p>
+      </div>
+
+      <!-- 3D Luxury Envelope in Baby Pink & Rose Gold -->
+      <div id="envelopeBox" class="relative w-full aspect-[4/3] rounded-3xl bg-[#340813] border-2 border-[#E5C378] shadow-envelope overflow-hidden cursor-pointer group" onclick="openInvitation()">
+        
+        <!-- Interior Dark Satin Lining (revealed only upon opening) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#2A050D] via-[#4A101E] to-[#2A050D] flex items-center justify-center">
+          <div class="text-center opacity-25">
+            <span class="font-cinzel font-black text-6xl text-[#E5C378]">V&amp;A</span>
+          </div>
+        </div>
+
+        <!-- Envelope Interior Card (Hidden completely until opened) -->
+        <div class="envelope-card-content absolute inset-x-4 top-10 bottom-4 rounded-2xl bg-white p-5 flex flex-col items-center justify-center text-center shadow-2xl border border-[#F19EB5]/80">
+          <p class="font-body text-[10px] text-[#D55577] tracking-[0.3em] uppercase font-bold">॥ श्री गणेशाय नमः ॥</p>
+          <h2 class="font-cinzel text-xl sm:text-2xl font-extrabold text-[#541525] mt-1.5 tracking-wider leading-tight">
+            <span class="text-[#B4395A] font-black text-2xl sm:text-3xl">V</span>EENA 
+            <span class="font-serif italic text-base text-[#B4395A] font-normal">&amp;</span> 
+            <span class="text-[#B4395A] font-black text-2xl sm:text-3xl">D</span>R. <span class="text-[#B4395A] font-black text-2xl sm:text-3xl">A</span>NIL
+          </h2>
+          <div class="w-14 h-[1.5px] bg-[#E5C378] my-2"></div>
+          <p class="font-serif italic text-xs text-[#8E2943]">Wedding Celebrations</p>
+          <p class="font-body text-[11px] font-semibold text-[#B4395A] mt-1">24 &amp; 25 November 2026 • Gorakhpur</p>
+        </div>
+
+        <!-- Lower Envelope Pocket (Solid Baby Pink & Rose Gold, covers card completely) -->
+        <div class="absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[#B4395A] via-[#D55577] to-[#E87A98] border-t-2 border-[#E5C378]/70 z-20 flex flex-col items-center justify-end pb-3 shadow-md">
+          <div class="flex items-center gap-2 opacity-85 mb-1">
+            <span class="h-[1px] w-6 bg-[#FFE8B5]"></span>
+            <span class="font-cinzel font-bold text-xs text-[#FFE8B5] tracking-widest">V &amp; A WEDDING</span>
+            <span class="h-[1px] w-6 bg-[#FFE8B5]"></span>
+          </div>
+          <p class="font-body text-[9px] uppercase tracking-[0.25em] text-[#FCEEF2]/90 font-semibold">Exclusive Invitation</p>
+        </div>
+
+        <!-- Top Flap (Meets lower pocket with prominent V&A Wax Seal) -->
+        <div class="envelope-top-flap absolute inset-x-0 top-0 h-[52%] bg-gradient-to-b from-[#E87A98] via-[#D55577] to-[#B4395A] border-b-2 border-[#E5C378] z-30 flex items-center justify-center shadow-lg">
+          
+          <!-- Wax Seal Button (V & A Monogram) -->
+          <div class="relative -bottom-8 flex items-center justify-center">
+            <div class="w-18 h-18 rounded-full gold-foil-bg p-1.5 shadow-gold-glow flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+              <div class="w-14 h-14 rounded-full border-2 border-[#9A7830] flex flex-col items-center justify-center bg-gradient-to-br from-[#FFE8B5] via-[#E5C378] to-[#9A7830] text-[#340813]">
+                <span class="font-display font-extrabold text-xl leading-none">V&amp;A</span>
+                <span class="text-[7px] uppercase font-extrabold tracking-widest text-[#541525] mt-0.5">OPEN</span>
+              </div>
+            </div>
+            <!-- Pulsing Rings -->
+            <div class="absolute inset-0 rounded-full border-2 border-[#FFE8B5] animate-ping opacity-40"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Action Button Hint -->
+      <div class="text-center mt-5">
+        <button onclick="openInvitation()" class="inline-flex items-center gap-2 px-7 py-3 rounded-full gold-foil-bg text-[#340813] font-display font-extrabold text-sm tracking-wider uppercase shadow-gold-glow hover:brightness-110 active:scale-95 transition-all">
+          <span>Tap to Open Invitation</span>
+          <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN MOBILE CONTAINER (BABY PINKISH WEDDING INVITATION) -->
+  <!-- ========================================================================= -->
+  <main id="mainContainer" class="relative z-10 max-w-[430px] mx-auto min-h-screen bg-baby-pink shadow-2xl overflow-hidden pb-32 border-x border-[#F19EB5]/40">
+
+    <!-- Decorative Delicate Floral Overlays in Corners -->
+    <div class="absolute top-0 right-0 w-44 h-44 pointer-events-none opacity-40 bg-contain bg-no-repeat bg-top-right" style="background-image: radial-gradient(circle at 100% 0%, #F19EB5 0%, #FFE8B5 30%, transparent 70%);"></div>
+    <div class="absolute top-96 left-0 w-36 h-36 pointer-events-none opacity-30 bg-contain bg-no-repeat bg-left" style="background-image: radial-gradient(circle at 0% 50%, #F7C6D3 0%, transparent 70%);"></div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 1: SACRED BLESSINGS & V & A HEADER -->
+    <!-- ----------------------------------------------------------------------- -->
+    <header class="pt-10 px-6 text-center relative">
+      
+      <!-- Ganesha Sacred Motif -->
+      <div class="flex justify-center mb-3">
+        <div class="w-14 h-14 rounded-full border border-[#E5C378] flex items-center justify-center p-2 bg-white/90 shadow-pink-glow">
+          <svg class="w-9 h-9 text-[#B4395A]" viewBox="0 0 64 64" fill="currentColor">
+            <path d="M32 6c-3.5 0-6.5 2.5-7 6-2 0-4 1.5-4 3.5 0 2 1.5 3.5 3.5 3.5.5 0 1-.1 1.5-.3.5 2.3 2 4.3 4 5.3v2c-4 1.5-8 5-8 10 0 6 5 11 11 11s11-5 11-11c0-5-4-8.5-8-10v-2c2-1 3.5-3 4-5.3.5.2 1 .3 1.5.3 2 0 3.5-1.5 3.5-3.5 0-2-2-3.5-4-3.5-.5-3.5-3.5-6-7-6zm-1 4c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm1 14c-1.5 0-3-1-3-2.5 0-1 1-2 2-2.3v1.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-1.3c1 .3 2 1.3 2 2.3 0 1.5-1.5 2.5-3 2.5zm0 18c-4.4 0-8-3.6-8-8 0-3.5 2.8-6.5 6-7.5v2.5c0 1.1.9 2 2 2s2-.9 2-2v-2.5c3.2 1 6 4 6 7.5 0 4.4-3.6 8-8 8z" opacity="0.9"/>
+            <circle cx="32" cy="18" r="2.5" fill="#E5C378"/>
+            <path d="M29 34h6v2h-6z" fill="#E5C378"/>
+            <path d="M30 38h4v2h-4z" fill="#E5C378"/>
+          </svg>
+        </div>
+      </div>
+
+      <p class="text-[#B4395A] font-body text-[11px] tracking-[0.28em] font-bold uppercase">॥ श्री गणेशाय नमः ॥</p>
+      <p class="font-serif italic text-base text-[#8E2943] mt-1 font-semibold">With the blessings of Lord Ganesha</p>
+
+      <!-- Monogram Formula Pill -->
+      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/80 border border-[#F19EB5] shadow-sm my-3">
+        <span class="font-display font-bold text-xs text-[#541525]">Veena</span>
+        <span class="text-[#E5C378] font-bold text-xs">&amp;</span>
+        <span class="font-display font-bold text-xs text-[#541525]">Dr. Anil</span>
+        <span class="text-[#B4395A] font-bold text-xs">•</span>
+        <span class="font-display font-extrabold text-xs text-[#B4395A]">V &amp; A</span>
+      </div>
+
+      <p class="font-serif text-sm text-[#541525] tracking-wide leading-relaxed px-4">
+        We cordially invite you to the wedding celebrations of
+      </p>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 2: HERO NAMES & DATE -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="text-center px-4 pt-3 pb-5">
+      <h1 class="font-cinzel text-4xl sm:text-5xl font-extrabold text-[#541525] tracking-widest uppercase">
+        <span class="text-5xl sm:text-6xl text-[#B4395A] font-black drop-shadow-sm">V</span>EENA
+      </h1>
+      <div class="flex items-center justify-center gap-3 my-2">
+        <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#E5C378]"></span>
+        <span class="font-serif italic text-2xl text-[#B4395A] font-bold">&amp;</span>
+        <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#E5C378]"></span>
+      </div>
+      <h1 class="font-cinzel text-3xl sm:text-4xl font-extrabold text-[#541525] tracking-widest uppercase">
+        <span class="text-4xl sm:text-5xl text-[#B4395A] font-black drop-shadow-sm">D</span>R. <span class="text-4xl sm:text-5xl text-[#B4395A] font-black drop-shadow-sm">A</span>NIL
+      </h1>
+
+      <p class="font-body text-[11px] font-extrabold tracking-[0.35em] text-[#8E2943] uppercase mt-3">
+        TOGETHER FOREVER
+      </p>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 3: CINEMATIC INSTAGRAM REEL / STORY SLIDESHOW (VIDEO FEEL) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-3">
+      
+      <!-- Video / Story Card Container -->
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#E5C378] bg-black aspect-[3/4] group">
+        
+        <!-- Story Progress Bars (Instagram Reel Style) -->
+        <div class="absolute top-3 inset-x-3 z-30 flex gap-1.5">
+          <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
+            <div id="storyProgress0" class="h-full bg-white transition-all duration-300 w-full"></div>
+          </div>
+          <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
+            <div id="storyProgress1" class="h-full bg-white transition-all duration-300 w-0"></div>
+          </div>
+          <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
+            <div id="storyProgress2" class="h-full bg-white transition-all duration-300 w-0"></div>
+          </div>
+        </div>
+
+        <!-- Story Top Tag -->
+        <div class="absolute top-6 left-4 z-30 flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full gold-foil-bg flex items-center justify-center text-[#541525] font-display font-bold text-xs shadow">
+            V&amp;A
+          </div>
+          <div>
+            <p class="text-white text-xs font-semibold drop-shadow leading-tight">Veena &amp; Dr. Anil</p>
+            <p class="text-[#FFE8B5] text-[10px] font-medium drop-shadow">Wedding Celebrations • Gorakhpur</p>
+          </div>
+        </div>
+
+        <!-- Slides Wrapper -->
+        <div id="reelCarousel" class="relative w-full h-full overflow-hidden">
+          
+          <!-- Slide 0: Auspicious Beginning -->
+          <div class="reel-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10" data-index="0">
+            <img src="assets/couple_seated.jpg" alt="Veena & Dr. Anil" class="w-full h-full object-cover object-top animate-kenburns" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40"></div>
+            <div class="absolute bottom-6 inset-x-5 text-center text-white z-20">
+              <span class="inline-block px-3 py-1 rounded-full bg-[#B4395A]/80 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-[#FFE8B5] mb-2 border border-[#E5C378]/40">
+                Chapter 1 • Sacred Union
+              </span>
+              <p class="font-serif italic text-xl text-[#FCEEF2]">"A beautiful bond destined in heaven, celebrated on earth."</p>
+            </div>
+          </div>
+
+          <!-- Slide 1: Together in Grace -->
+          <div class="reel-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0" data-index="1">
+            <img src="assets/couple_standing.jpg" alt="Veena & Dr. Anil Standing" class="w-full h-full object-cover object-center animate-kenburns" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40"></div>
+            <div class="absolute bottom-6 inset-x-5 text-center text-white z-20">
+              <span class="inline-block px-3 py-1 rounded-full bg-[#B4395A]/80 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-[#FFE8B5] mb-2 border border-[#E5C378]/40">
+                Chapter 2 • Together Forever
+              </span>
+              <p class="font-serif italic text-xl text-[#FCEEF2]">"Two families united in boundless joy, love &amp; traditions."</p>
+            </div>
+          </div>
+
+          <!-- Slide 2: Temple Blessings -->
+          <div class="reel-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0" data-index="2">
+            <img src="assets/couple.jpg" alt="Veena & Dr. Anil Blessings" class="w-full h-full object-cover object-center animate-kenburns" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40"></div>
+            <div class="absolute bottom-6 inset-x-5 text-center text-white z-20">
+              <span class="inline-block px-3 py-1 rounded-full bg-[#B4395A]/80 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-[#FFE8B5] mb-2 border border-[#E5C378]/40">
+                Chapter 3 • Auspicious Blessings
+              </span>
+              <p class="font-serif italic text-xl text-[#FCEEF2]">"Seeking your warmest blessings as we step into our forever."</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Left / Right Tap Areas for Story Navigation -->
+        <div class="absolute inset-y-0 left-0 w-1/3 z-25 cursor-pointer" onclick="prevSlide()"></div>
+        <div class="absolute inset-y-0 right-0 w-1/3 z-25 cursor-pointer" onclick="nextSlide()"></div>
+
+        <!-- Manual Dots Navigation -->
+        <div class="absolute bottom-2 inset-x-0 z-30 flex justify-center gap-1.5">
+          <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-white transition-all" id="dot0"></button>
+          <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-white/50 transition-all" id="dot1"></button>
+          <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-white/50 transition-all" id="dot2"></button>
+        </div>
+
+      </div>
+
+      <!-- Quick Reel Hint -->
+      <div class="flex items-center justify-between px-2 pt-2 text-[10px] text-[#8E2943] font-medium">
+        <span>🎬 Tap left/right to browse story</span>
+        <button onclick="toggleReelAutoPlay()" id="reelPlayPauseBtn" class="underline font-bold text-[#B4395A]">
+          ⏸ Pause Reel
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 4: BRIDE & GROOM DETAILS (PARENTAGE & RESIDENCE) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-5">
+      <div class="rounded-3xl pink-card-glass p-5 shadow-glass border border-[#F19EB5]/50 relative">
+        
+        <div class="grid grid-cols-2 gap-4 text-center divide-x divide-[#F19EB5]/50">
+          
+          <!-- Bride Side (Veena) -->
+          <div class="pr-2">
+            <h3 class="font-cinzel text-xl sm:text-2xl font-extrabold text-[#541525] tracking-wider uppercase">
+              <span class="text-2xl sm:text-3xl text-[#B4395A] font-black">V</span>EENA
+            </h3>
+            <p class="font-body text-[10px] uppercase tracking-wider text-[#B4395A] font-bold mt-1">Daughter of</p>
+            <p class="font-serif text-sm font-bold text-[#340813] mt-1 leading-snug">
+              Shri Prabhat Shukla
+            </p>
+            <p class="font-serif italic text-xs text-[#8E2943]">&amp;</p>
+            <p class="font-serif text-sm font-bold text-[#340813] leading-snug">
+              Smt. Asha Shukla
+            </p>
+            <div class="mt-2 pt-1.5 border-t border-[#F19EB5]/30">
+              <p class="font-body text-[10px] uppercase tracking-wider text-[#8E2943] font-semibold">Residence</p>
+              <p class="font-serif text-xs text-[#541525] font-medium leading-tight">Raptinagar, Gorakhpur</p>
+            </div>
+          </div>
+
+          <!-- Groom Side (Dr. Anil) -->
+          <div class="pl-2">
+            <h3 class="font-cinzel text-xl sm:text-2xl font-extrabold text-[#541525] tracking-wider uppercase">
+              <span class="text-2xl sm:text-3xl text-[#B4395A] font-black">D</span>R. <span class="text-2xl sm:text-3xl text-[#B4395A] font-black">A</span>NIL
+            </h3>
+            <p class="font-body text-[10px] uppercase tracking-wider text-[#B4395A] font-bold mt-1">Son of</p>
+            <p class="font-serif text-sm font-bold text-[#340813] mt-1 leading-snug">
+              Late Shri Ayodhya Prasad Dwivedi
+            </p>
+            <p class="font-serif italic text-xs text-[#8E2943]">&amp;</p>
+            <p class="font-serif text-sm font-bold text-[#340813] leading-snug">
+              Smt. Kalindi Devi
+            </p>
+            <div class="mt-2 pt-1.5 border-t border-[#F19EB5]/30">
+              <p class="font-body text-[10px] uppercase tracking-wider text-[#8E2943] font-semibold">Residence</p>
+              <p class="font-serif text-xs text-[#541525] font-medium leading-tight">Shanichara, Siddharthnagar</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-[#F19EB5]/40 text-center">
+          <p class="font-serif italic text-xs text-[#8E2943]">
+            Warmly invite you and your family to grace the occasion with your blessings.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 5: LIVE COUNTDOWNS (HALDI & WEDDING CEREMONY) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-5">
+      <div class="rounded-3xl dark-pink-card text-white p-6 shadow-2xl border border-[#E5C378]/60 relative overflow-hidden">
+        
+        <!-- Watermark V&A -->
+        <div class="absolute -right-4 -bottom-6 font-display text-8xl font-black text-white/5 pointer-events-none select-none">
+          V&amp;A
+        </div>
+
+        <!-- Section Header -->
+        <div class="text-center relative z-10">
+          <p class="font-body text-[10px] tracking-[0.3em] uppercase text-[#FFE8B5] font-extrabold">Auspicious Timers</p>
+          <h2 class="font-display text-2xl text-white mt-1">Live Countdowns</h2>
+          <div class="w-12 h-[1px] bg-[#E5C378] mx-auto my-2"></div>
+        </div>
+
+        <!-- Dual Countdown Selector Tabs -->
+        <div class="flex items-center justify-center p-1 bg-black/40 rounded-full border border-[#F19EB5]/40 my-4 relative z-10 max-w-xs mx-auto">
+          <button id="tabHaldi" onclick="switchCountdown('haldi')" class="flex-1 py-1.5 px-3 rounded-full text-xs font-bold transition-all duration-300 gold-foil-bg text-[#340813] shadow">
+            💛 Haldi (24 Nov)
+          </button>
+          <button id="tabWedding" onclick="switchCountdown('wedding')" class="flex-1 py-1.5 px-3 rounded-full text-xs font-bold transition-all duration-300 text-[#FCEEF2] hover:text-[#FFE8B5]">
+            💍 Wedding (24 Nov)
+          </button>
+        </div>
+
+        <!-- Active Event Info Tagline -->
+        <div class="text-center mb-5 relative z-10">
+          <p id="countdownEventLabel" class="font-serif italic text-sm text-[#FFE8B5]">
+            Haldi Ceremony • Tuesday, 24 November 2026
+          </p>
+        </div>
+
+        <!-- Countdown Digits Grid -->
+        <div class="grid grid-cols-4 gap-2 relative z-10">
+          
+          <!-- Days -->
+          <div class="bg-black/40 rounded-2xl border border-[#E5C378]/35 p-2.5 text-center backdrop-blur-md">
+            <span id="daysVal" class="font-display text-2xl md:text-3xl font-extrabold text-[#FFE8B5] block leading-none">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/80 font-body mt-1 block font-semibold">Days</span>
+          </div>
+
+          <!-- Hours -->
+          <div class="bg-black/40 rounded-2xl border border-[#E5C378]/35 p-2.5 text-center backdrop-blur-md">
+            <span id="hoursVal" class="font-display text-2xl md:text-3xl font-extrabold text-[#FFE8B5] block leading-none">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/80 font-body mt-1 block font-semibold">Hours</span>
+          </div>
+
+          <!-- Minutes -->
+          <div class="bg-black/40 rounded-2xl border border-[#E5C378]/35 p-2.5 text-center backdrop-blur-md">
+            <span id="minsVal" class="font-display text-2xl md:text-3xl font-extrabold text-[#FFE8B5] block leading-none">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/80 font-body mt-1 block font-semibold">Mins</span>
+          </div>
+
+          <!-- Seconds -->
+          <div class="bg-black/40 rounded-2xl border border-[#E5C378]/35 p-2.5 text-center backdrop-blur-md relative">
+            <span id="secsVal" class="font-display text-2xl md:text-3xl font-extrabold text-[#FFE8B5] block leading-none">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/80 font-body mt-1 block font-semibold">Secs</span>
+            <span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#E5C378] animate-ping"></span>
+          </div>
+
+        </div>
+
+        <!-- Footer Note for both events -->
+        <div class="mt-5 pt-3 border-t border-white/10 text-center relative z-10 flex items-center justify-between text-[11px] text-[#FCEEF2]/80 font-body">
+          <span>Haldi: 24 Nov 2026</span>
+          <span class="text-[#E5C378]">✦ V &amp; A ✦</span>
+          <span>Wedding: 24 Nov 2026</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 6: WEDDING ITINERARY & CEREMONIES -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-5">
+      
+      <div class="text-center mb-5">
+        <p class="font-body text-[10px] tracking-[0.3em] uppercase text-[#B4395A] font-extrabold">Ceremonies &amp; Dates</p>
+        <h2 class="font-display text-3xl text-[#541525] mt-1">Wedding Itinerary</h2>
+        <div class="w-12 h-[1px] bg-[#E5C378] mx-auto my-2"></div>
+      </div>
+
+      <!-- Events Cards Stack -->
+      <div class="space-y-4">
+        
+        <!-- CARD 1: HALDI CEREMONY -->
+        <div class="rounded-3xl pink-card-glass p-5 shadow-glass border-2 border-[#E5C378]/60 relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full gold-foil-bg flex items-center justify-center text-[#541525] shadow font-bold text-lg">
+                💛
+              </div>
+              <div>
+                <span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-[#E5C378]/30 text-[#8E2943] border border-[#E5C378]/40">
+                  Pre-Wedding Celebration
+                </span>
+                <h3 class="font-display text-xl text-[#541525] font-bold">Haldi Ceremony</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 bg-white/90 rounded-2xl p-3 border border-[#F19EB5]/50 flex items-center justify-between">
+            <div>
+              <p class="font-serif font-bold text-sm text-[#340813]">Tuesday, 24 November 2026</p>
+              <p class="font-body text-xs text-[#8E2943]">Auspicious Haldi Rituals &amp; Celebrations</p>
+            </div>
+            <div class="text-right">
+              <span class="font-display font-bold text-xl text-[#B4395A]">24</span>
+              <span class="text-[9px] uppercase block font-bold text-[#8E2943]">NOV</span>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Haldi+Ceremony+-+Veena+%26+Dr.+Anil&dates=20261124T043000Z/20261124T083000Z&details=Haldi+Ceremony+of+Veena+%26+Dr.+Anil+at+Open+Sky+Resort%2C+Padri+Bazar%2C+Pipraich+Road%2C+Gorakhpur.&location=Open+Sky+Resort%2C+Padri+Bazar%2C+Pipraich+Road%2C+Gorakhpur" target="_blank" class="w-full py-2 px-3 rounded-xl bg-white border border-[#E5C378] text-[#541525] text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-[#FDF8F9] shadow-sm transition">
+              <svg class="w-3.5 h-3.5 text-[#E5C378]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+              <span>Add Haldi to Calendar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: WEDDING CEREMONY -->
+        <div class="rounded-3xl bg-gradient-to-br from-white via-[#FCEEF2] to-[#FBE0E7] p-5 shadow-pink-glow border-2 border-[#E5C378] relative overflow-hidden">
+          <div class="absolute top-0 right-0 gold-foil-bg text-[#340813] font-body text-[9px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-bl-2xl shadow-sm">
+            Main Event
+          </div>
+
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-[#541525] text-[#FFE8B5] flex items-center justify-center shadow font-bold text-lg">
+                💍
+              </div>
+              <div>
+                <span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-[#E5C378]/30 text-[#8E2943] border border-[#E5C378]/50">
+                  The Sacred Vows
+                </span>
+                <h3 class="font-display text-xl text-[#541525] font-bold">Wedding Ceremony</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 bg-white/95 rounded-2xl p-3 border border-[#E5C378]/50 flex items-center justify-between">
+            <div>
+              <p class="font-serif font-bold text-sm text-[#340813]">Tuesday, 24 November 2026</p>
+              <p class="font-body text-xs text-[#8E2943]">Baraat Swagat, Jaimala &amp; Sacred Pheras</p>
+            </div>
+            <div class="text-right">
+              <span class="font-display font-bold text-xl text-[#B4395A]">24</span>
+              <span class="text-[9px] uppercase block font-bold text-[#8E2943]">NOV</span>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony+-+Veena+%26+Dr.+Anil&dates=20261124T133000Z/20261124T213000Z&details=Wedding+Ceremony+of+Veena+%26+Dr.+Anil+at+Open+Sky+Resort%2C+Padri+Bazar%2C+Pipraich+Road%2C+Gorakhpur.&location=Open+Sky+Resort%2C+Padri+Bazar%2C+Pipraich+Road%2C+Gorakhpur" target="_blank" class="w-full py-2.5 px-3 rounded-xl gold-foil-bg text-[#340813] text-xs font-extrabold flex items-center justify-center gap-1.5 shadow hover:brightness-105 transition">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+              <span>Add Wedding to Calendar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: VIDAI CEREMONY -->
+        <div class="rounded-3xl pink-card-glass p-5 shadow-glass border border-[#F19EB5]/60 relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-[#FAF6EE] border border-[#E5C378] flex items-center justify-center text-[#541525] shadow font-bold text-lg">
+                🌸
+              </div>
+              <div>
+                <span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-[#B4395A]/15 text-[#B4395A] border border-[#B4395A]/25">
+                  Auspicious Farewell
+                </span>
+                <h3 class="font-display text-xl text-[#541525] font-bold">Vidai Ceremony</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 bg-white/90 rounded-2xl p-3 border border-[#F19EB5]/50 flex items-center justify-between">
+            <div>
+              <p class="font-serif font-bold text-sm text-[#340813]">Wednesday, 25 November 2026</p>
+              <p class="font-body text-xs text-[#8E2943]">Morning Blessings &amp; Farewell</p>
+            </div>
+            <div class="text-right">
+              <span class="font-display font-bold text-xl text-[#B4395A]">25</span>
+              <span class="text-[9px] uppercase block font-bold text-[#8E2943]">NOV</span>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vidai+Ceremony+-+Veena+%26+Dr.+Anil&dates=20261125T033000Z/20261125T063000Z&details=Vidai+Ceremony+of+Veena+%26+Dr.+Anil+at+Open+Sky+Resort%2C+Padri+Bazar%2C+Pipraich+Road%2C+Gorakhpur.&location=Open+Sky+Resort%2C+Padri+Bazar%2C+Pipraich+Road%2C+Gorakhpur" target="_blank" class="w-full py-2 px-3 rounded-xl bg-white border border-[#F19EB5] text-[#541525] text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-[#FDF8F9] shadow-sm transition">
+              <svg class="w-3.5 h-3.5 text-[#E5C378]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+              <span>Add Vidai to Calendar</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 7: VENUE & INTERACTIVE GOOGLE MAP -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-5" id="venueSection">
+      
+      <div class="text-center mb-5">
+        <p class="font-body text-[10px] tracking-[0.3em] uppercase text-[#B4395A] font-extrabold">Destination</p>
+        <h2 class="font-display text-3xl text-[#541525] mt-1">VENUE</h2>
+        <div class="w-12 h-[1px] bg-[#E5C378] mx-auto my-2"></div>
+      </div>
+
+      <div class="rounded-3xl pink-card-glass overflow-hidden shadow-glass border-2 border-[#F19EB5]/60">
+        
+        <!-- Venue Header -->
+        <div class="p-5 text-center border-b border-[#F19EB5]/40">
+          <div class="w-10 h-10 rounded-full bg-[#B4395A]/15 text-[#B4395A] flex items-center justify-center mx-auto mb-2">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-[#541525]">Open Sky Resort</h3>
+          <p class="font-serif text-sm font-medium text-[#8E2943] mt-1">
+            Padri Bazar, Pipraich Road, Gorakhpur, Uttar Pradesh
+          </p>
+        </div>
+
+        <!-- Embedded Google Maps -->
+        <div class="relative w-full aspect-[4/3] bg-gray-200">
+          <iframe 
+            src="https://maps.google.com/maps?q=Open+Sky+Resort,+Padri+Bazar,+Pipraich+Road,+Gorakhpur&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="p-4 bg-white/70 space-y-2.5">
+          <a href="https://www.google.com/maps/search/?api=1&query=Open+Sky+Resort+Pipraich+Road+Padri+Bazar+Gorakhpur" target="_blank" class="w-full py-2.5 px-4 rounded-2xl gold-foil-bg text-[#340813] font-display font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow hover:brightness-105 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+            <span>Open in Google Maps</span>
+          </a>
+
+          <a href="https://api.whatsapp.com/send?text=Wedding%20Venue%20for%20Veena%20%26%20Dr.%20Anil%3A%20Open%20Sky%20Resort%2C%20Padri%20Bazar%2C%20Pipraich%20Road%2C%20Gorakhpur.%20Maps%20Link%3A%20https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DOpen%2BSky%2BResort%2BPipraich%2BRoad%2BPadri%2BBazar%2BGorakhpur" target="_blank" class="w-full py-2 px-4 rounded-2xl border border-[#F19EB5] bg-white text-[#541525] text-xs font-bold flex items-center justify-center gap-2 hover:bg-[#FCEEF2] transition">
+            <svg class="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+            <span>Share Venue on WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 8: CONTACT DETAILS & DIRECT ASSISTANCE -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-5" id="contactSection">
+      <div class="rounded-3xl bg-gradient-to-br from-white via-[#FCEEF2] to-[#FBE0E7] p-6 shadow-glass border-2 border-[#E5C378] relative text-center">
+        
+        <div class="w-12 h-12 rounded-full gold-foil-bg flex items-center justify-center mx-auto mb-2 text-[#541525] shadow">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.053 15.053 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1.01A11.36 11.36 0 018.57 3.9c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.52c0-.55-.45-1-.99-1z"/>
+          </svg>
+        </div>
+
+        <p class="font-body text-[10px] tracking-[0.25em] uppercase text-[#B4395A] font-extrabold">Sender / Host Contact Info</p>
+        <h3 class="font-display text-2xl text-[#541525] mt-1 font-bold">Shri Prabhat Shukla</h3>
+        <p class="font-serif italic text-xs text-[#8E2943] mt-0.5">
+          Raptinagar, Gorakhpur
+        </p>
+        <p class="font-body text-xs text-[#671420] mt-2 font-medium">
+          For venue assistance, travel queries or warm greetings:
+        </p>
+
+        <!-- Prominent Contact Numbers -->
+        <div class="my-4 space-y-2">
+          <div class="p-2.5 rounded-2xl bg-white/90 border border-[#F19EB5] flex items-center justify-between px-4 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-sm">📞</span>
+              <a href="tel:+919455080074" class="font-display text-base font-bold text-[#541525] tracking-wider hover:text-[#B4395A] transition">
+                +91 94550 80074
+              </a>
+            </div>
+            <a href="tel:+919455080074" class="py-1 px-3 rounded-full bg-[#541525] text-white text-[10px] font-bold uppercase tracking-wider hover:bg-[#3D0916] transition">Call</a>
+          </div>
+
+          <div class="p-2.5 rounded-2xl bg-white/90 border border-[#F19EB5] flex items-center justify-between px-4 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-sm">📞</span>
+              <a href="tel:+919532534799" class="font-display text-base font-bold text-[#541525] tracking-wider hover:text-[#B4395A] transition">
+                +91 95325 34799
+              </a>
+            </div>
+            <a href="tel:+919532534799" class="py-1 px-3 rounded-full bg-[#541525] text-white text-[10px] font-bold uppercase tracking-wider hover:bg-[#3D0916] transition">Call</a>
+          </div>
+        </div>
+
+        <!-- 1-Tap Action Buttons -->
+        <div class="grid grid-cols-2 gap-3 mt-3">
+          <a href="tel:+919455080074" class="py-2.5 px-4 rounded-2xl bg-[#541525] text-white font-display text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow hover:bg-[#3D0916] transition">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span>Call Host</span>
+          </a>
+
+          <a href="https://wa.me/919455080074?text=Heartiest%20Congratulations%20Veena%20%26%20Dr.%20Anil!%20%F0%9F%8E%89%20Wishing%20you%20both%20a%20lifetime%20of%20love%20and%20happiness!%20%E2%9C%A8%F0%9F%92%8D" target="_blank" class="py-2.5 px-4 rounded-2xl bg-emerald-600 text-white font-display text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow hover:bg-emerald-700 transition">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 9: INTERACTIVE BLESSINGS & CELEBRATION SHOWER -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-5">
+      <div class="rounded-3xl pink-card-glass p-6 text-center shadow-glass border border-[#F19EB5]/50 relative overflow-hidden">
+        
+        <p class="font-body text-[10px] tracking-[0.25em] uppercase text-[#B4395A] font-extrabold">Send Warm Blessings</p>
+        <h3 class="font-display text-2xl text-[#541525] mt-1 font-bold">Shower Your Love</h3>
+        <p class="font-serif italic text-sm text-[#8E2943] mt-2 max-w-xs mx-auto leading-relaxed">
+          "Your gracious presence and blessings will make our celebration truly memorable."
+        </p>
+
+        <!-- Interactive Shower Petals Button -->
+        <div class="mt-4">
+          <button onclick="showerPetals()" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gold-foil-bg text-[#340813] font-display text-xs font-extrabold uppercase tracking-wider shadow-gold-glow hover:brightness-105 active:scale-95 transition">
+            <span>Shower Flowers &amp; Petals 🌸</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- FOOTER: SIGN-OFF & MONOGRAM -->
+    <!-- ----------------------------------------------------------------------- -->
+    <footer class="pt-6 pb-12 px-6 text-center border-t border-[#F19EB5]/40">
+      
+      <!-- V & A Monogram -->
+      <div class="w-12 h-12 rounded-full border border-[#E5C378] mx-auto flex items-center justify-center bg-white shadow-sm mb-3">
+        <span class="font-display font-extrabold text-[#541525] text-base">V&amp;A</span>
+      </div>
+
+      <h4 class="font-cinzel text-xl sm:text-2xl font-extrabold text-[#541525] tracking-widest uppercase">
+        <span class="text-[#B4395A] font-black text-2xl sm:text-3xl">V</span>EENA &amp; <span class="text-[#B4395A] font-black text-2xl sm:text-3xl">D</span>R. <span class="text-[#B4395A] font-black text-2xl sm:text-3xl">A</span>NIL
+      </h4>
+      <p class="font-body text-[10px] uppercase tracking-[0.25em] text-[#B4395A] font-bold mt-1">#VeenaWedsDrAnil • #VandAWedding</p>
+
+      <div class="w-16 h-[1px] bg-[#E5C378] mx-auto my-3"></div>
+
+      <p class="font-serif italic text-xs text-[#8E2943]">
+        Your gracious presence and blessings will make our celebration truly memorable.
+      </p>
+      <p class="font-serif text-sm font-bold text-[#340813] mt-1.5">
+        Shukla &amp; Dwivedi Families, Relatives &amp; Friends
+      </p>
+      <p class="font-body text-xs text-[#8E2943] mt-1 font-semibold">
+        Host: Shri Prabhat Shukla • Raptinagar, Gorakhpur
+      </p>
+
+      <!-- Reopen Envelope Option -->
+      <div class="mt-6">
+        <button onclick="reopenEnvelope()" class="text-xs text-[#8E2943] underline underline-offset-4 hover:text-[#541525] font-semibold transition">
+          Replay Envelope Opening
+        </button>
+      </div>
+
+    </footer>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING BOTTOM ACTION BAR (MOBILE QUICK ACCESS) -->
+  <!-- ========================================================================= -->
+  <nav class="fixed bottom-3 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
+    <div class="pointer-events-auto bg-[#4A101E]/95 backdrop-blur-md border border-[#F19EB5]/50 rounded-full px-4 py-2.5 shadow-2xl flex items-center gap-3.5 text-xs font-semibold text-[#FCEEF2]">
+      
+      <!-- Reel Shortcut -->
+      <button onclick="document.querySelector('#reelCarousel').scrollIntoView({behavior: 'smooth'})" class="flex items-center gap-1 hover:text-[#FFE8B5] transition">
+        <span>🎬</span>
+        <span>Reel</span>
+      </button>
+
+      <span class="text-white/20">|</span>
+
+      <!-- Countdown Shortcut -->
+      <button onclick="document.querySelector('#daysVal').scrollIntoView({behavior: 'smooth'})" class="flex items-center gap-1 hover:text-[#FFE8B5] transition">
+        <span>⏳</span>
+        <span>Timer</span>
+      </button>
+
+      <span class="text-white/20">|</span>
+
+      <!-- Venue Map -->
+      <a href="https://www.google.com/maps/search/?api=1&query=Open+Sky+Resort+Pipraich+Road+Padri+Bazar+Gorakhpur" target="_blank" class="flex items-center gap-1 hover:text-[#FFE8B5] transition">
+        <span>📍</span>
+        <span>Map</span>
+      </a>
+
+      <span class="text-white/20">|</span>
+
+      <!-- Contact Phone -->
+      <a href="tel:+919455080074" class="flex items-center gap-1 text-[#FFE8B5] hover:brightness-125 transition">
+        <span>📞</span>
+        <span>Call</span>
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: REEL SLIDER, DUAL COUNTDOWN, AUDIO, CINEMATIC TOUR & PETALS -->
+  <!-- ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. DUAL COUNTDOWNS (HALDI & WEDDING CEREMONY - 24 NOVEMBER 2026)
+    // -------------------------------------------------------------------------
+    const haldiTarget = new Date('2026-11-24T10:00:00+05:30').getTime();
+    const weddingTarget = new Date('2026-11-24T19:00:00+05:30').getTime();
+    let activeCountdown = 'haldi';
+
+    function updateCountdown() {
+      const targetTime = activeCountdown === 'haldi' ? haldiTarget : weddingTarget;
+      const now = new Date().getTime();
+      const diff = targetTime - now;
+
+      if (diff <= 0) {
+        document.getElementById('daysVal').innerText = "00";
+        document.getElementById('hoursVal').innerText = "00";
+        document.getElementById('minsVal').innerText = "00";
+        document.getElementById('secsVal').innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('daysVal').innerText = String(days).padStart(2, '0');
+      document.getElementById('hoursVal').innerText = String(hours).padStart(2, '0');
+      document.getElementById('minsVal').innerText = String(minutes).padStart(2, '0');
+      document.getElementById('secsVal').innerText = String(seconds).padStart(2, '0');
+    }
+
+    function switchCountdown(type) {
+      activeCountdown = type;
+      const tabHaldi = document.getElementById('tabHaldi');
+      const tabWedding = document.getElementById('tabWedding');
+      const eventLabel = document.getElementById('countdownEventLabel');
+
+      if (type === 'haldi') {
+        tabHaldi.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-bold transition-all duration-300 gold-foil-bg text-[#340813] shadow";
+        tabWedding.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-bold transition-all duration-300 text-[#FCEEF2] hover:text-[#FFE8B5]";
+        eventLabel.innerText = "Haldi Ceremony • Tuesday, 24 November 2026";
+      } else {
+        tabWedding.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-bold transition-all duration-300 gold-foil-bg text-[#340813] shadow";
+        tabHaldi.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-bold transition-all duration-300 text-[#FCEEF2] hover:text-[#FFE8B5]";
+        eventLabel.innerText = "Wedding Ceremony • Tuesday, 24 November 2026";
+      }
+
+      updateCountdown();
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // -------------------------------------------------------------------------
+    // 2. ENVELOPE OPENING ANIMATION & AUDIO PLAY
+    // -------------------------------------------------------------------------
+    function openInvitation() {
+      const envelopeBox = document.getElementById('envelopeBox');
+      const envelopeOverlay = document.getElementById('envelopeOverlay');
+      
+      envelopeBox.classList.add('envelope-open');
+
+      // Start music on user interaction
+      playAudio();
+
+      // Shower rose petals
+      showerPetals();
+
+      // Smooth unbox transition
+      setTimeout(() => {
+        envelopeOverlay.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          envelopeOverlay.style.display = 'none';
+        }, 700);
+      }, 1000);
+    }
+
+    function reopenEnvelope() {
+      const envelopeOverlay = document.getElementById('envelopeOverlay');
+      const envelopeBox = document.getElementById('envelopeBox');
+      
+      envelopeOverlay.style.display = 'flex';
+      envelopeOverlay.classList.remove('pointer-events-none', 'opacity-0');
+      envelopeBox.classList.remove('envelope-open');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. BACKGROUND MUSIC TOGGLE
+    // -------------------------------------------------------------------------
+    const audio = document.getElementById('weddingAudio');
+    const audioStatusText = document.getElementById('audioStatusText');
+    const discIcon = document.getElementById('discIcon');
+
+    function playAudio() {
+      audio.play().then(() => {
+        audioStatusText.innerText = "Music : On";
+        discIcon.classList.add('animate-spin-slow');
+      }).catch((e) => {
+        console.log("Audio waiting for interaction:", e);
+      });
+    }
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          audioStatusText.innerText = "Music : On";
+          discIcon.classList.add('animate-spin-slow');
+        });
+      } else {
+        audio.pause();
+        audioStatusText.innerText = "Music : Off";
+        discIcon.classList.remove('animate-spin-slow');
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. INSTAGRAM REEL / STORY CAROUSEL WITH AUTO PROGRESS
+    // -------------------------------------------------------------------------
+    let currentSlide = 0;
+    const totalSlides = 3;
+    let reelAutoPlay = true;
+    let slideTimer = null;
+
+    function showSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      const slides = document.querySelectorAll('.reel-slide');
+      
+      slides.forEach((slide, i) => {
+        const progress = document.getElementById('storyProgress' + i);
+        const dot = document.getElementById('dot' + i);
+
+        if (i === currentSlide) {
+          slide.classList.remove('opacity-0', 'z-0');
+          slide.classList.add('opacity-100', 'z-10');
+          if (progress) progress.style.width = '100%';
+          if (dot) {
+            dot.className = "w-2 h-2 rounded-full bg-white transition-all scale-125";
+          }
+        } else if (i < currentSlide) {
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'z-0');
+          if (progress) progress.style.width = '100%';
+          if (dot) {
+            dot.className = "w-2 h-2 rounded-full bg-white/50 transition-all";
+          }
+        } else {
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'z-0');
+          if (progress) progress.style.width = '0%';
+          if (dot) {
+            dot.className = "w-2 h-2 rounded-full bg-white/50 transition-all";
+          }
+        }
+      });
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    function startReelInterval() {
+      if (slideTimer) clearInterval(slideTimer);
+      slideTimer = setInterval(() => {
+        if (reelAutoPlay) {
+          nextSlide();
+        }
+      }, 4500);
+    }
+
+    function toggleReelAutoPlay() {
+      reelAutoPlay = !reelAutoPlay;
+      const btn = document.getElementById('reelPlayPauseBtn');
+      btn.innerText = reelAutoPlay ? "⏸ Pause Reel" : "▶ Play Reel";
+    }
+
+    startReelInterval();
+
+    // -------------------------------------------------------------------------
+    // 5. CINEMATIC AUTO-TOUR MODE (VIDEO-LIKE EXPERIENCE)
+    // -------------------------------------------------------------------------
+    let isTouring = false;
+    let tourScrollInterval = null;
+
+    function toggleCinematicTour() {
+      const cinemaIcon = document.getElementById('cinemaIcon');
+      const cinemaText = document.getElementById('cinemaText');
+
+      if (!isTouring) {
+        isTouring = true;
+        cinemaIcon.innerText = "⏸";
+        cinemaText.innerText = "Touring";
+        playAudio();
+        showerPetals();
+
+        // Slow smooth cinematic auto-scroll
+        tourScrollInterval = setInterval(() => {
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            clearInterval(tourScrollInterval);
+            isTouring = false;
+            cinemaIcon.innerText = "▶";
+            cinemaText.innerText = "Auto Tour";
+          } else {
+            window.scrollBy({ top: 1.5, behavior: 'smooth' });
+          }
+        }, 35);
+      } else {
+        isTouring = false;
+        clearInterval(tourScrollInterval);
+        cinemaIcon.innerText = "▶";
+        cinemaText.innerText = "Auto Tour";
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. ROSE & BLUSH FLOWER PETAL SHOWER
+    // -------------------------------------------------------------------------
+    function showerPetals() {
+      const petalTypes = ['🌸', '🌺', '🌹', '✨', '💐', '🌼'];
+      const totalPetals = 30;
+
+      for (let i = 0; i < totalPetals; i++) {
+        setTimeout(() => {
+          const petal = document.createElement('div');
+          petal.className = 'petal';
+          petal.innerText = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+          petal.style.left = Math.random() * 95 + 'vw';
+          petal.style.fontSize = (Math.random() * 16 + 18) + 'px';
+          petal.style.animationDuration = (Math.random() * 2 + 3.5) + 's';
+          document.body.appendChild(petal);
+
+          setTimeout(() => {
+            petal.remove();
+          }, 4900);
+        }, i * 65);
+      }
+    }
+  </script>
+
+</body>
+</html>
