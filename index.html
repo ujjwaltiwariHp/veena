@@ -232,25 +232,66 @@
     .eq-bar-3 { animation: eqBar3 0.9s infinite ease-in-out; }
     .eq-bar-4 { animation: eqBar4 0.65s infinite ease-in-out; }
 
-    /* 7. Floating Flower Petals and Golden Stars */
-    @keyframes fall {
+    /* 7. Continuous Ambient Flower Rain & Celebratory Shower */
+    @keyframes gentlePetalDriftLeft {
       0% {
-        transform: translateY(-40px) rotate(0deg) scale(0.6);
+        transform: translateY(-40px) translateX(0) rotate(0deg) scale(0.7);
         opacity: 0;
       }
-      15% { opacity: 0.95; }
-      85% { opacity: 0.85; }
+      10% {
+        opacity: 0.95;
+      }
+      50% {
+        transform: translateY(50vh) translateX(30px) rotate(180deg) scale(1);
+      }
+      90% {
+        opacity: 0.85;
+      }
       100% {
-        transform: translateY(105vh) rotate(420deg) scale(1.15);
+        transform: translateY(105vh) translateX(-25px) rotate(380deg) scale(0.9);
         opacity: 0;
       }
     }
 
+    @keyframes gentlePetalDriftRight {
+      0% {
+        transform: translateY(-40px) translateX(0) rotate(0deg) scale(0.75);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.95;
+      }
+      50% {
+        transform: translateY(50vh) translateX(-30px) rotate(-180deg) scale(1.05);
+      }
+      90% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translateY(105vh) translateX(25px) rotate(-380deg) scale(0.85);
+        opacity: 0;
+      }
+    }
+
+    .ambient-petal {
+      position: fixed;
+      top: -40px;
+      pointer-events: none;
+      user-select: none;
+      z-index: 35;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      will-change: transform, opacity;
+    }
+
     .petal {
       position: fixed;
+      top: -40px;
       pointer-events: none;
+      user-select: none;
       z-index: 99999;
-      animation: fall 5s linear forwards;
+      animation: gentlePetalDriftLeft 4.5s linear forwards;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+      will-change: transform, opacity;
     }
 
     /* 8. Rotating Music Disc */
@@ -301,6 +342,9 @@
     <source src="assets/wedding_music.m4a" type="audio/mp4" />
     <source src="assets/wedding_music.mp3" type="audio/mpeg" />
   </audio>
+
+  <!-- Ambient Continuous Flower Rain Layer -->
+  <div id="ambientPetalContainer" class="fixed inset-0 pointer-events-none z-30 overflow-hidden"></div>
 
   <!-- Floating Audio & Auto-Play Video Tour Pill (Top Right) -->
   <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
@@ -1134,6 +1178,9 @@
       // Shower rose petals and gold sparkles
       showerPetals();
 
+      // Start continuous graceful flower rain across the main page
+      startAmbientFlowerRain();
+
       // Smooth unbox transition
       setTimeout(() => {
         envelopeOverlay.classList.add('opacity-0', 'pointer-events-none');
@@ -1295,28 +1342,65 @@
     }
 
     // -------------------------------------------------------------------------
-    // 6. ROSE PETAL & GOLDEN STARBURST SHOWER
+    // 6. CONTINUOUS AMBIENT FLOWER RAIN & CELEBRATORY PETAL SHOWER
     // -------------------------------------------------------------------------
-    function showerPetals() {
-      const petalTypes = ['🌸', '✨', '🌹', '⭐', '🌺', '✦', '🌼'];
-      const totalPetals = 35;
+    const petalPalette = ['🌸', '✨', '🌹', '⭐', '🌺', '✦', '🌼'];
+    let ambientRainInterval = null;
 
+    function spawnPetal(isBurst = false) {
+      const container = document.getElementById('ambientPetalContainer') || document.body;
+      const petal = document.createElement('div');
+      
+      const isAltTrajectory = Math.random() > 0.5;
+      petal.className = isBurst ? 'petal' : 'ambient-petal';
+      if (!isBurst && isAltTrajectory) {
+        petal.style.animationName = 'gentlePetalDriftRight';
+      } else if (!isBurst) {
+        petal.style.animationName = 'gentlePetalDriftLeft';
+      }
+
+      petal.innerText = petalPalette[Math.floor(Math.random() * petalPalette.length)];
+      petal.style.left = (Math.random() * 95) + 'vw';
+      
+      const duration = isBurst ? (Math.random() * 2 + 3.5) : (Math.random() * 3 + 5.5);
+      const size = isBurst ? (Math.random() * 14 + 18) : (Math.random() * 12 + 15);
+      
+      petal.style.fontSize = size + 'px';
+      petal.style.animationDuration = duration + 's';
+      petal.style.opacity = Math.random() * 0.35 + 0.65;
+      
+      container.appendChild(petal);
+
+      setTimeout(() => {
+        petal.remove();
+      }, (duration * 1000) + 150);
+    }
+
+    function startAmbientFlowerRain() {
+      if (ambientRainInterval) return;
+      
+      // Pre-seed a few petals immediately across the screen height
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => spawnPetal(false), i * 180);
+      }
+
+      // Continuous steady graceful flower rain across the main page
+      ambientRainInterval = setInterval(() => {
+        spawnPetal(false);
+      }, 380);
+    }
+
+    function showerPetals() {
+      const totalPetals = 40;
       for (let i = 0; i < totalPetals; i++) {
         setTimeout(() => {
-          const petal = document.createElement('div');
-          petal.className = 'petal';
-          petal.innerText = petalTypes[Math.floor(Math.random() * petalTypes.length)];
-          petal.style.left = Math.random() * 95 + 'vw';
-          petal.style.fontSize = (Math.random() * 16 + 18) + 'px';
-          petal.style.animationDuration = (Math.random() * 2 + 3.5) + 's';
-          document.body.appendChild(petal);
-
-          setTimeout(() => {
-            petal.remove();
-          }, 4900);
-        }, i * 65);
+          spawnPetal(true);
+        }, i * 55);
       }
     }
+
+    // Start ambient flower rain immediately so flowers drift continuously on the page
+    startAmbientFlowerRain();
   </script>
 
 </body>
