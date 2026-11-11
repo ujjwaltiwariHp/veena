@@ -274,23 +274,23 @@
     }
 
     .ambient-petal {
-      position: fixed;
-      top: -40px;
+      position: absolute;
+      top: -45px;
       pointer-events: none;
       user-select: none;
       z-index: 35;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.12));
       will-change: transform, opacity;
     }
 
     .petal {
-      position: fixed;
-      top: -40px;
+      position: absolute;
+      top: -45px;
       pointer-events: none;
       user-select: none;
       z-index: 99999;
       animation: gentlePetalDriftLeft 4.5s linear forwards;
-      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.18));
       will-change: transform, opacity;
     }
 
@@ -343,8 +343,8 @@
     <source src="assets/wedding_music.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Ambient Continuous Flower Rain Layer -->
-  <div id="ambientPetalContainer" class="fixed inset-0 pointer-events-none z-30 overflow-hidden"></div>
+  <!-- Ambient Continuous Flower Rain Layer (Confined Strictly to Mobile Viewport) -->
+  <div id="ambientPetalContainer" class="fixed inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] pointer-events-none z-30 overflow-hidden"></div>
 
   <!-- Floating Audio & Auto-Play Video Tour Pill (Top Right) -->
   <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
@@ -1344,10 +1344,11 @@
     // -------------------------------------------------------------------------
     // 6. CONTINUOUS AMBIENT FLOWER RAIN & CELEBRATORY PETAL SHOWER
     // -------------------------------------------------------------------------
-    const petalPalette = ['🌸', '✨', '🌹', '⭐', '🌺', '✦', '🌼'];
+    // Rich floral mix: pink cherry blossoms, red roses, yellow marigolds, white jasmine, blush hibiscus & gold sparkles
+    const petalPalette = ['🌸', '🌹', '🌺', '🌼', '🌸', '🌹', '💮', '🌼', '🌸', '🌹', '💐', '✨', '🌸', '🌹'];
     let ambientRainInterval = null;
 
-    function spawnPetal(isBurst = false) {
+    function spawnPetal(isBurst = false, isPreSeeded = false) {
       const container = document.getElementById('ambientPetalContainer') || document.body;
       const petal = document.createElement('div');
       
@@ -1360,14 +1361,21 @@
       }
 
       petal.innerText = petalPalette[Math.floor(Math.random() * petalPalette.length)];
-      petal.style.left = (Math.random() * 95) + 'vw';
       
-      const duration = isBurst ? (Math.random() * 2 + 3.5) : (Math.random() * 3 + 5.5);
+      // Position strictly within mobile card percentage (5% to 95%)
+      petal.style.left = (Math.random() * 90 + 5) + '%';
+      
+      const duration = isBurst ? (Math.random() * 1.8 + 3.2) : (Math.random() * 2.5 + 4.5);
       const size = isBurst ? (Math.random() * 14 + 18) : (Math.random() * 12 + 15);
       
       petal.style.fontSize = size + 'px';
       petal.style.animationDuration = duration + 's';
-      petal.style.opacity = Math.random() * 0.35 + 0.65;
+      petal.style.opacity = Math.random() * 0.3 + 0.7;
+
+      if (isPreSeeded) {
+        // Pre-seed petals along the descent so the screen is immediately blooming
+        petal.style.animationDelay = '-' + (Math.random() * duration * 0.85) + 's';
+      }
       
       container.appendChild(petal);
 
@@ -1379,27 +1387,31 @@
     function startAmbientFlowerRain() {
       if (ambientRainInterval) return;
       
-      // Pre-seed a few petals immediately across the screen height
-      for (let i = 0; i < 6; i++) {
-        setTimeout(() => spawnPetal(false), i * 180);
+      // Pre-seed 16 petals instantly across the mobile screen
+      for (let i = 0; i < 16; i++) {
+        spawnPetal(false, true);
       }
 
-      // Continuous steady graceful flower rain across the main page
+      // Continuous, abundant flower shower confined strictly to the mobile screen
       ambientRainInterval = setInterval(() => {
         spawnPetal(false);
-      }, 380);
+        // Frequently drop a second companion petal for a lush, festive Indian wedding feel
+        if (Math.random() > 0.35) {
+          spawnPetal(false);
+        }
+      }, 240);
     }
 
     function showerPetals() {
-      const totalPetals = 40;
+      const totalPetals = 45;
       for (let i = 0; i < totalPetals; i++) {
         setTimeout(() => {
           spawnPetal(true);
-        }, i * 55);
+        }, i * 45);
       }
     }
 
-    // Start ambient flower rain immediately so flowers drift continuously on the page
+    // Start ambient flower rain immediately strictly on the mobile card
     startAmbientFlowerRain();
   </script>
 
